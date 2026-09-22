@@ -39,21 +39,21 @@ const navItems = [
 		right: 0;
 		z-index: 100;
 		width: 100%;
-		max-width: var(--max-width);
-		margin: 0 auto;
-		padding: 1.5rem 2rem;
+		padding: 1.15rem 2rem;
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
-		backdrop-filter: blur(12px);
-		-webkit-backdrop-filter: blur(12px);
-		background: rgba(10, 10, 10, 0.8);
+		backdrop-filter: blur(16px);
+		-webkit-backdrop-filter: blur(16px);
+		background: rgba(12, 13, 14, 0.82);
+		border-bottom: 1px solid var(--color-border);
 	}
 
 	.logo {
 		color: var(--color-text);
-		font-weight: 700;
-		font-size: 1.1rem;
+		font-weight: 600;
+		font-size: 0.95rem;
+		letter-spacing: -0.02em;
 		z-index: 101;
 	}
 
@@ -75,19 +75,19 @@ const navItems = [
 		gap: 5px;
 		cursor: pointer;
 		z-index: 101;
-		padding: 10px;
-		min-width: 44px;
-		min-height: 44px;
+		padding: 8px;
+		min-width: 40px;
+		min-height: 40px;
 		align-items: center;
 		justify-content: center;
 	}
 
 	.bar {
 		display: block;
-		width: 22px;
-		height: 2px;
+		width: 20px;
+		height: 1.5px;
 		background: var(--color-text);
-		border-radius: 2px;
+		border-radius: 1px;
 		transition:
 			transform var(--transition-fast),
 			opacity var(--transition-fast);
@@ -95,12 +95,15 @@ const navItems = [
 
 	.links {
 		display: flex;
-		gap: 1.5rem;
+		gap: 1.75rem;
+		align-items: center;
 	}
 
 	.links a {
+		font-family: var(--font-mono);
 		color: var(--color-muted);
-		font-size: 0.9rem;
+		font-size: 0.78rem;
+		letter-spacing: 0.04em;
 		transition: color var(--transition-fast);
 	}
 
@@ -110,7 +113,7 @@ const navItems = [
 
 	@media (max-width: 640px) {
 		.navbar {
-			padding: 1rem 1.5rem;
+			padding: 1rem 1.25rem;
 		}
 
 		.nav-toggle {
@@ -137,7 +140,7 @@ const navItems = [
 		}
 
 		.links a {
-			font-size: 1.25rem;
+			font-size: 1.15rem;
 		}
 
 		.nav-toggle-input:checked ~ .links {
@@ -146,7 +149,7 @@ const navItems = [
 		}
 
 		.nav-toggle-input:checked ~ .nav-toggle .bar:nth-child(1) {
-			transform: translateY(7px) rotate(45deg);
+			transform: translateY(6.5px) rotate(45deg);
 		}
 
 		.nav-toggle-input:checked ~ .nav-toggle .bar:nth-child(2) {
@@ -154,7 +157,7 @@ const navItems = [
 		}
 
 		.nav-toggle-input:checked ~ .nav-toggle .bar:nth-child(3) {
-			transform: translateY(-7px) rotate(-45deg);
+			transform: translateY(-6.5px) rotate(-45deg);
 		}
 	}
 </style>
