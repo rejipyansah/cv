@@ -4,64 +4,90 @@ import Navbar from '../components/Navbar.astro';
 
 const name = 'Reji Pikriyansah';
 const role = 'Fullstack Developer';
-const location = 'Bandung, Jawa Barat';
 const email = 'rejipyansah@gmail.com';
+const linkedin = 'https://www.linkedin.com/in/reji-pikriyansah-a3477219b/';
 
 const experiences = [
 	{
 		project: 'Invoice Pro',
 		role: 'Fullstack Developer',
 		date: 'Aug 2026 — Present',
+		bullets: [
+			'Develop and maintain an enterprise AP invoice processing system using React.js, Express.js, and PostgreSQL.',
+			'Resolve production issues across three-way matching, approval workflows, and voucher generation edge cases.',
+			'Troubleshoot application performance and banking reconciliation issues in collaboration with QA and business teams.',
+		],
 	},
 	{
-		project: 'Bank BJBS',
+		project: 'Bank BJBS — Internal Web Applications',
 		role: 'Frontend Developer',
 		date: 'Aug 2025 — Jul 2026',
+		bullets: [
+			'Develop and maintain internal web applications using Laravel, React.js, and Next.js.',
+			'Build responsive interfaces based on business and user requirements.',
+			'Troubleshoot application issues and improve frontend performance in collaboration with backend developers, QA engineers, and business teams.',
+		],
 	},
 	{
 		project: 'KMS BPK RI',
 		role: 'Fullstack Developer',
 		date: 'Jan 2025 — Feb 2026',
+		bullets: [
+			'Build and enhance internal knowledge management features using React (Vite) and Golang.',
+			'Design and maintain backend logic and SQL Server data persistence.',
+			'Support system stability through issue resolution, functional validation, and performance improvements.',
+		],
 	},
 	{
-		project: 'Tap-MM',
+		project: 'Tap-MM — Warehouse Management System',
 		role: 'Fullstack Developer',
 		date: 'Aug 2024 — Dec 2024',
+		bullets: [
+			'Contribute to feature development for an existing warehouse management system using React, GraphQL, Golang, and PostgreSQL.',
+			'Implement GraphQL APIs and integrate frontend features with backend services and database workflows.',
+			'Perform bug fixing and functional testing to support application reliability.',
+		],
 	},
 	{
-		project: 'SISAPRA',
+		project: 'SISAPRA — Satpol PP DKI Jakarta',
 		role: 'Frontend Developer',
 		date: 'Mar 2024 — Aug 2024',
+		bullets: [
+			'Develop responsive web interfaces and integrate frontend features with backend APIs.',
+			'Connect application features with backend services and database workflows to support system functionality.',
+			'Perform functional testing and bug fixing to improve application reliability and performance.',
+		],
 	},
 	{
-		project: 'Loan Management System',
+		project: 'Loan Management System — Bank BJB',
 		role: 'Frontend Developer',
 		date: 'Aug 2022 — Feb 2024',
+		bullets: [
+			'Build and maintain a scalable Loan Management System supporting KPR and consumer banking products using Next.js and SQL Server.',
+			'Develop responsive interfaces integrated with backend services to support banking workflows.',
+			'Work with QA and Security teams to meet reliability and security requirements for a banking application.',
+		],
 	},
 ];
 
 const skillCategories = [
 	{
 		label: 'Frontend',
-		items: 'React.js, Next.js, TypeScript, JavaScript, Vite',
+		items: 'HTML · CSS · JavaScript · TypeScript · React · Next.js · Vite',
 	},
 	{
 		label: 'Backend',
-		items: 'Express.js, Golang, Laravel, ASP.NET Core',
+		items: 'Golang · Node.js · Express.js · CodeIgniter',
 	},
 	{
 		label: 'Database',
-		items: 'PostgreSQL, SQL Server, MySQL, MongoDB',
-	},
-	{
-		label: 'Tools & practices',
-		items: 'Git, Docker',
+		items: 'PostgreSQL · MySQL · MongoDB · SQL Server · NoSQL',
 	},
 ];
 
 const socialLinks = [
 	{ label: 'Email', href: `mailto:${email}` },
-	{ label: 'GitHub', href: 'https://github.com/rejipyansah' },
+	{ label: 'LinkedIn', href: linkedin },
 ];
 ---
 
@@ -81,8 +107,8 @@ const socialLinks = [
 				<p class="role">Fullstack developer, from the frontend outward</p>
 				<p class="intro">
 					4+ years building web applications across banking, government,
-					and enterprise systems. Started in frontend engineering and gradually
-					expanded into backend services, databases, and production systems.
+					and enterprise environments — starting from frontend development
+					and expanding into backend services, databases, and production systems.
 				</p>
 
 				<div class="cta-row">
@@ -93,15 +119,15 @@ const socialLinks = [
 				<div class="strip">
 					<div class="item">
 						<div class="num">4+</div>
-						<div class="label">years of experience</div>
+						<div class="label">Years building web applications</div>
 					</div>
 					<div class="item">
 						<div class="num">Frontend → Fullstack</div>
-						<div class="label">career progression</div>
+						<div class="label">From interfaces to backend systems</div>
 					</div>
 					<div class="item">
-						<div class="num">Banking · Gov · Enterprise</div>
-						<div class="label">domains worked in</div>
+						<div class="num">Banking · Government · Enterprise</div>
+						<div class="label">Project experience across industries</div>
 					</div>
 				</div>
 			</div>
@@ -123,14 +149,24 @@ const socialLinks = [
 				</p>
 
 				{experiences.map((exp, i) => (
-					<div class="proj-line">
-						<span class="proj-idx">{String(i + 1).padStart(2, '0')}</span>
-						<div>
-							<div class="proj-name">{exp.project}</div>
-							<div class="proj-role">{exp.role}</div>
+					<details class="proj-line">
+						<summary class="proj-summary">
+							<span class="proj-idx">{String(i + 1).padStart(2, '0')}</span>
+							<div class="proj-info">
+								<div class="proj-name">{exp.project}</div>
+								<div class="proj-role">{exp.role}</div>
+							</div>
+							<div class="proj-date">{exp.date}</div>
+							<span class="proj-toggle" aria-hidden="true"></span>
+						</summary>
+						<div class="proj-details">
+							<ul>
+								{exp.bullets.map((bullet) => (
+									<li>{bullet}</li>
+								))}
+							</ul>
 						</div>
-						<div class="proj-date">{exp.date}</div>
-					</div>
+					</details>
 				))}
 			</div>
 		</section>
@@ -153,14 +189,18 @@ const socialLinks = [
 						<div class="fp-sub">Personal Finance System</div>
 					</div>
 					<div class="fp-actions">
-						<a class="btn-primary" href="#">View live</a>
-						<a class="link-text" href="#">GitHub</a>
-						<a class="link-text" href="#">Case study</a>
+						<a class="btn-primary" href="https://life-os.rejipyansah.workers.dev/" target="_blank" rel="noreferrer">View live</a>
 					</div>
 				</div>
 
 				<p class="fp-desc">
 					Making everyday financial tracking require less friction.
+				</p>
+
+				<p class="fp-body-text">
+					Tracking everyday expenses can become tedious when every transaction requires multiple manual steps.
+					Life OS was built to reduce that friction by letting users describe what happened naturally instead
+					of treating every action as a form to fill out.
 				</p>
 
 				<div class="fp-stack">
@@ -169,20 +209,29 @@ const socialLinks = [
 					<span class="stack-tag">ASP.NET Core</span>
 					<span class="stack-tag">PostgreSQL</span>
 				</div>
-				<p class="fp-note">Add real links and screenshot before publishing.</p>
 
 				<div class="fp-case">
 					<div>
-						<div class="label">Problem</div>
-						<div class="body">— add problem description —</div>
-					</div>
-					<div>
 						<div class="label">Approach</div>
-						<div class="body">— add approach description —</div>
+						<div class="body">Life OS uses natural input as the primary interaction for finance. A user can type something like <code>jajan 18rb cash</code>, and the system interprets the input into a structured transaction preview before anything is persisted.</div>
 					</div>
 					<div>
 						<div class="label">Engineering focus</div>
-						<div class="body">— add technical focus notes —</div>
+						<div class="body">AI handles interpretation, while deterministic application logic validates the result, resolves the account within the current scope, and only creates the transaction after user confirmation.</div>
+					</div>
+				</div>
+
+				<div class="fp-demo">
+					<div class="demo-flow">
+						<div class="demo-input"><code>jajan 18rb cash</code></div>
+						<div class="demo-arrow">↓</div>
+						<div class="demo-result">Expense · Rp18.000 · Cash</div>
+						<div class="demo-arrow">↓</div>
+						<div class="demo-preview">Preview</div>
+						<div class="demo-actions">
+							<span class="demo-btn">[ Confirm ]</span>
+							<span class="demo-btn">[ Edit ]</span>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -203,17 +252,54 @@ const socialLinks = [
 			</div>
 		</section>
 
+		<!-- Education -->
+		<section class="education" id="education">
+			<div class="wrap">
+				<div class="s-kicker">Education</div>
+				<div class="s-title">Background</div>
+
+				<div class="edu-card">
+					<div class="edu-header">
+						<div class="edu-name">Universitas Jenderal Achmad Yani Cimahi</div>
+						<div class="edu-date">Aug 2017 — Feb 2022</div>
+					</div>
+					<div class="edu-degree">Bachelor's Degree · Informatics Engineering</div>
+					<div class="edu-gpa">GPA 3.51</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Languages -->
+		<section class="languages">
+			<div class="wrap">
+				<div class="lang-row">
+					<div class="lang-label">Bahasa Indonesia</div>
+					<div class="lang-level">Native</div>
+				</div>
+				<div class="lang-row">
+					<div class="lang-label">English</div>
+					<div class="lang-level">Intermediate</div>
+				</div>
+			</div>
+		</section>
+
 		<!-- Contact -->
 		<section class="contact" id="contact">
 			<div class="wrap">
 				<div class="contact-panel">
 					<div>
 						<div class="contact-text">
-							Open to fullstack roles across enterprise and financial systems.
+							Let's build something useful.
 						</div>
+						<p class="contact-desc">
+							I'm open to fullstack opportunities where I can work across
+							frontend, backend, and the systems behind them.
+						</p>
 						<div class="contact-links">
 							{socialLinks.map((link) => (
-								<a href={link.href}>{link.label.toLowerCase()} — {link.href === `mailto:${email}` ? email : link.href}</a>
+								<a href={link.href} target={link.href.startsWith('http') ? '_blank' : undefined} rel={link.href.startsWith('http') ? 'noreferrer' : undefined}>
+									{link.label.toLowerCase()} — {link.href === `mailto:${email}` ? email : link.href}
+								</a>
 							))}
 						</div>
 					</div>
