@@ -7,165 +7,60 @@ const role = 'Fullstack Developer';
 const location = 'Bandung, Jawa Barat';
 const email = 'rejipyansah@gmail.com';
 
-const heroSkills = [
-	'React.js',
-	'Next.js',
-	'TypeScript',
-	'Golang',
-	'Express.js',
-	'PostgreSQL',
-	'SQL Server',
-	'Docker',
+const experiences = [
+	{
+		project: 'Invoice Pro',
+		role: 'Fullstack Developer',
+		date: 'Aug 2026 — Present',
+	},
+	{
+		project: 'Bank BJBS',
+		role: 'Frontend Developer',
+		date: 'Aug 2025 — Jul 2026',
+	},
+	{
+		project: 'KMS BPK RI',
+		role: 'Fullstack Developer',
+		date: 'Jan 2025 — Feb 2026',
+	},
+	{
+		project: 'Tap-MM',
+		role: 'Fullstack Developer',
+		date: 'Aug 2024 — Dec 2024',
+	},
+	{
+		project: 'SISAPRA',
+		role: 'Frontend Developer',
+		date: 'Mar 2024 — Aug 2024',
+	},
+	{
+		project: 'Loan Management System',
+		role: 'Frontend Developer',
+		date: 'Aug 2022 — Feb 2024',
+	},
 ];
 
 const skillCategories = [
 	{
 		label: 'Frontend',
-		technologies: ['React.js', 'Next.js', 'TypeScript', 'JavaScript', 'Vite'],
+		items: 'React.js, Next.js, TypeScript, JavaScript, Vite',
 	},
 	{
 		label: 'Backend',
-		technologies: ['Express.js', 'Golang', 'Laravel', 'ASP.NET Core'],
+		items: 'Express.js, Golang, Laravel, ASP.NET Core',
 	},
 	{
 		label: 'Database',
-		technologies: ['PostgreSQL', 'SQL Server', 'MySQL', 'MongoDB'],
+		items: 'PostgreSQL, SQL Server, MySQL, MongoDB',
 	},
 	{
-		label: 'Tools',
-		technologies: ['Git', 'Docker'],
-	},
-];
-
-const experiences = [
-	{
-		title: 'Fullstack Developer',
-		company: 'PT Tristar Surya Gemilang',
-		period: 'Aug 2026 – Present',
-		project: 'Invoice Pro',
-		bullets: [
-			'Maintaining an enterprise AP invoice processing system across frontend and backend',
-			'Resolving production bugs including three-way matching errors, approval workflow issues, and voucher generation edge cases',
-			'Troubleshooting performance bottlenecks and banking reconciliation issues',
-			'Collaborating with QA and business teams to address production edge cases',
-		],
-		technologies: ['React.js', 'Express.js', 'PostgreSQL'],
-	},
-	{
-		title: 'Frontend Developer',
-		company: 'PT Tristar Surya Gemilang',
-		period: 'Aug 2025 – Jul 2026',
-		project: 'Internal Web Applications',
-		client: 'PT Bank BJBS',
-		bullets: [
-			'Maintaining multiple internal web applications for banking operations',
-			'Implementing responsive interfaces based on business and user requirements',
-			'Collaborating with backend developers, QA engineers, and business teams to deliver features',
-			'Troubleshooting issues and improving application performance',
-		],
-		technologies: ['Laravel', 'React.js', 'Next.js'],
-	},
-	{
-		title: 'Fullstack Developer',
-		company: 'PT Tristar Surya Gemilang',
-		period: 'Jan 2025 – Feb 2026',
-		project: 'Knowledge Management System (KMS)',
-		client: 'BPK RI',
-		bullets: [
-			'Building and enhancing internal knowledge management features',
-			'Designing backend logic and data persistence layers',
-			'Resolving issues and validating functionality to support system stability',
-		],
-		technologies: ['React (Vite)', 'Golang', 'SQL Server'],
-	},
-	{
-		title: 'Fullstack Developer',
-		company: 'PT Tristar Surya Gemilang',
-		period: 'Aug 2024 – Dec 2024',
-		project: 'Tap-MM',
-		subtitle: 'Warehouse Management System',
-		bullets: [
-			'Contributing to feature development of an existing warehouse management web application',
-			'Implementing GraphQL APIs and integrating frontend, backend, and database layers',
-			'Fixing bugs and performing functional testing',
-		],
-		technologies: ['React', 'GraphQL', 'Golang', 'PostgreSQL'],
-	},
-	{
-		title: 'Frontend Developer',
-		company: 'PT Tristar Surya Gemilang',
-		period: 'Mar 2024 – Aug 2024',
-		project: 'SISAPRA',
-		client: 'Satpol PP DKI Jakarta',
-		bullets: [
-			'Developing responsive web interfaces and contributing to backend integration via APIs',
-			'Integrating frontend features with backend services and database',
-			'Performing functional testing and bug fixing to support reliability',
-		],
-		technologies: ['APIs', 'Backend Services', 'Database'],
-	},
-	{
-		title: 'Frontend Developer',
-		company: 'PT Tristar Surya Gemilang',
-		period: 'Aug 2022 – Feb 2024',
-		project: 'Loan Management System (LMS)',
-		client: 'PT Bank BJB',
-		bullets: [
-			'Building and maintaining a Loan Management System supporting KPR and Consumer banking products',
-			'Delivering responsive interfaces integrated with backend services',
-			'Partnering with QA and Security teams to meet banking-grade standards',
-		],
-		technologies: ['Next.js', 'SQL Server'],
-	},
-];
-
-interface ProjectLink {
-	label: 'Live Demo' | 'GitHub';
-	href: string;
-}
-
-interface ProjectItem {
-	title: string;
-	category: string;
-	roleContext?: string;
-	description: string;
-	technologies: string[];
-	isPersonal?: boolean;
-	links?: ProjectLink[];
-}
-
-const projects: ProjectItem[] = [
-	{
-		title: 'Invoice Pro',
-		category: 'Client Project',
-		roleContext: 'Fullstack Developer',
-		description: 'Enterprise AP invoice processing system.',
-		technologies: ['React.js', 'Express.js', 'PostgreSQL'],
-	},
-	{
-		title: 'Loan Management System',
-		category: 'Client Project',
-		roleContext: 'Frontend Developer · PT Bank BJB',
-		description: 'Banking loan management application.',
-		technologies: ['Next.js', 'SQL Server'],
-	},
-	{
-		title: 'Knowledge Management System (KMS)',
-		category: 'Client Project',
-		roleContext: 'Fullstack Developer · BPK RI',
-		description: 'Knowledge Management System.',
-		technologies: ['React (Vite)', 'Golang', 'SQL Server'],
-	},
-	{
-		title: 'Life OS',
-		category: 'Personal Project · Learning / Practice',
-		description: 'Personal finance management application.',
-		technologies: ['React', 'TypeScript', 'ASP.NET Core', 'PostgreSQL'],
-		isPersonal: true,
+		label: 'Tools & practices',
+		items: 'Git, Docker',
 	},
 ];
 
 const socialLinks = [
+	{ label: 'Email', href: `mailto:${email}` },
 	{ label: 'GitHub', href: 'https://github.com/rejipyansah' },
 ];
 ---
@@ -180,752 +75,151 @@ const socialLinks = [
 	<main>
 		<!-- Hero -->
 		<section class="hero">
-			<p class="eyebrow">
-				<span class="status-dot" aria-hidden="true"></span>
-				{location}
-			</p>
-
-			<h1>{name}</h1>
-
-			<p class="role">{role}</p>
-
-			<p class="intro">
-				Fullstack developer specializing in building and maintaining
-				enterprise web applications and banking systems across frontend
-				and backend environments.
-			</p>
-
-			<div class="skills" aria-label="Core technologies">
-				{heroSkills.map((skill) => (
-					<span>{skill}</span>
-				))}
-			</div>
-
-			<div class="actions">
-				<a href="/cv.pdf" class="button primary">
-					Download CV
-				</a>
-
-				<a href={`mailto:${email}`} class="button">
-					Contact Me
-				</a>
-			</div>
-		</section>
-
-		<!-- About / Professional Summary -->
-		<section id="about" class="section">
-			<div class="section-label">ABOUT</div>
-
-			<div class="section-content">
-				<h2>
-					Engineering reliable web systems for enterprise and banking workflows.
-				</h2>
-
-				<p>
-					Over four years in software engineering, my work has centered on developing
-					and maintaining internal web platforms, loan management systems, and invoice
-					processing tools. Starting in frontend engineering and expanding into fullstack
-					responsibilities, I focus on system reliability, resolving production edge cases,
-					and building robust APIs and data persistence layers.
+			<div class="wrap">
+				<div class="kicker">Portfolio</div>
+				<h1>Reji<br />Pikriyansah</h1>
+				<p class="role">Fullstack developer, from the frontend outward</p>
+				<p class="intro">
+					4+ years building web applications across banking, government,
+					and enterprise systems. Started in frontend engineering and gradually
+					expanded into backend services, databases, and production systems.
 				</p>
+
+				<div class="cta-row">
+					<a class="btn-primary" href="#work">View work</a>
+					<a class="link-text" href="#contact">Get in touch</a>
+				</div>
+
+				<div class="strip">
+					<div class="item">
+						<div class="num">4+</div>
+						<div class="label">years of experience</div>
+					</div>
+					<div class="item">
+						<div class="num">Frontend → Fullstack</div>
+						<div class="label">career progression</div>
+					</div>
+					<div class="item">
+						<div class="num">Banking · Gov · Enterprise</div>
+						<div class="label">domains worked in</div>
+					</div>
+				</div>
 			</div>
 		</section>
 
 		<!-- Experience -->
-		<section id="experience" class="section">
-			<div class="section-label">EXPERIENCE</div>
+		<section class="experience" id="experience">
+			<div class="wrap">
+				<div class="s-kicker">Experience</div>
+				<div class="s-title">Where I've worked</div>
 
-			<div class="section-content">
-				<h2>Professional Experience</h2>
+				<div class="employer-line">
+					<span class="name">PT Tristar Surya Gemilang</span>
+					<span class="date">Aug 2022 — Present</span>
+				</div>
+				<p class="employer-sub">
+					Multiple project assignments across banking, government, and
+					enterprise systems.
+				</p>
 
-				<div class="experience-list">
-					{experiences.map((exp) => (
-						<div class="experience-item">
-							<div class="experience-header">
-								<div class="experience-title-group">
-									<h3 class="experience-title">{exp.title}</h3>
-									<span class="experience-company">{exp.company}</span>
-								</div>
-								<span class="experience-period">{exp.period}</span>
-							</div>
-							<p class="experience-project">
-								<strong>{exp.project}</strong>
-								{exp.client && <> — {exp.client}</>}
-								{exp.subtitle && <> — {exp.subtitle}</>}
-							</p>
-							<ul class="experience-bullets">
-								{exp.bullets.map((bullet) => (
-									<li>{bullet}</li>
-								))}
-							</ul>
-							<div class="experience-tech">
-								{exp.technologies.map((tech) => (
-									<span>{tech}</span>
-								))}
-							</div>
+				{experiences.map((exp, i) => (
+					<div class="proj-line">
+						<span class="proj-idx">{String(i + 1).padStart(2, '0')}</span>
+						<div>
+							<div class="proj-name">{exp.project}</div>
+							<div class="proj-role">{exp.role}</div>
 						</div>
-					))}
+						<div class="proj-date">{exp.date}</div>
+					</div>
+				))}
+			</div>
+		</section>
+
+		<!-- Featured Project -->
+		<section class="featured" id="work">
+			<div class="featured-head">
+				<div class="s-kicker">Featured project</div>
+				<div class="s-title" style="margin-bottom: 0;">What I build for myself</div>
+			</div>
+
+			<div class="gallery-frame">
+				<span>product preview — replace with Life OS screenshot</span>
+			</div>
+
+			<div class="fp-body">
+				<div class="fp-top">
+					<div>
+						<div class="fp-title">Life OS</div>
+						<div class="fp-sub">Personal Finance System</div>
+					</div>
+					<div class="fp-actions">
+						<a class="btn-primary" href="#">View live</a>
+						<a class="link-text" href="#">GitHub</a>
+						<a class="link-text" href="#">Case study</a>
+					</div>
+				</div>
+
+				<p class="fp-desc">
+					Making everyday financial tracking require less friction.
+				</p>
+
+				<div class="fp-stack">
+					<span class="stack-tag">React</span>
+					<span class="stack-tag">TypeScript</span>
+					<span class="stack-tag">ASP.NET Core</span>
+					<span class="stack-tag">PostgreSQL</span>
+				</div>
+				<p class="fp-note">Add real links and screenshot before publishing.</p>
+
+				<div class="fp-case">
+					<div>
+						<div class="label">Problem</div>
+						<div class="body">— add problem description —</div>
+					</div>
+					<div>
+						<div class="label">Approach</div>
+						<div class="body">— add approach description —</div>
+					</div>
+					<div>
+						<div class="label">Engineering focus</div>
+						<div class="body">— add technical focus notes —</div>
+					</div>
 				</div>
 			</div>
 		</section>
 
-		<!-- Selected Work -->
-		<section id="work" class="section">
-			<span id="projects" class="sr-only" aria-hidden="true"></span>
-			<div class="section-label">WORK</div>
+		<!-- Skills -->
+		<section class="skills" id="skills">
+			<div class="wrap">
+				<div class="s-kicker">Skills</div>
+				<div class="s-title">Toolset</div>
 
-			<div class="section-content">
-				<h2>Selected Work</h2>
-
-				<div class="project-grid">
-					{projects.map((proj) => (
-						<article class={`project-card ${proj.isPersonal ? 'project-card-personal' : ''}`}>
-							<div class="project-header">
-								<div class="project-title-group">
-									<h3 class="project-title">{proj.title}</h3>
-									{proj.roleContext && (
-										<p class="project-context">{proj.roleContext}</p>
-									)}
-								</div>
-								<span
-									class={`project-badge ${proj.isPersonal ? 'badge-personal' : 'badge-pro'}`}
-								>
-									{proj.category}
-								</span>
-							</div>
-							<p class="project-description">{proj.description}</p>
-							<div class="project-tech" aria-label={`Technologies used in ${proj.title}`}>
-								{proj.technologies.map((tech) => (
-									<span>{tech}</span>
-								))}
-							</div>
-							{proj.links && proj.links.length > 0 && (
-								<div class="project-links">
-									{proj.links.map((link) => (
-										<a
-											href={link.href}
-											target="_blank"
-											rel="noreferrer"
-											class="project-link"
-										>
-											{link.label}
-											<span class="sr-only">for {proj.title}</span>
-										</a>
-									))}
-								</div>
-							)}
-						</article>
-					))}
-				</div>
-			</div>
-		</section>
-
-		<!-- Technical Skills -->
-		<section id="skills" class="section">
-			<div class="section-label">SKILLS</div>
-
-			<div class="section-content">
-				<h2>Technical Skills</h2>
-
-				<div class="skill-grid">
-					{skillCategories.map((category) => (
-						<div class="skill-category">
-							<div class="skill-header">
-								<h3>{category.label}</h3>
-							</div>
-							<div class="skill-tags">
-								{category.technologies.map((tech) => (
-									<span>{tech}</span>
-								))}
-							</div>
-						</div>
-					))}
-				</div>
+				{skillCategories.map((cat) => (
+					<div class="skill-row">
+						<div class="g-label">{cat.label}</div>
+						<div class="g-items">{cat.items}</div>
+					</div>
+				))}
 			</div>
 		</section>
 
 		<!-- Contact -->
-		<section id="contact" class="section">
-			<div class="section-label">CONTACT</div>
-
-			<div class="section-content">
-				<h2>Let's connect.</h2>
-
-				<p>
-					Interested in working together or discussing opportunities?
-					Reach out directly via email.
-				</p>
-
-				<div class="actions">
-					<a href={`mailto:${email}`} class="button primary">
-						{email}
-					</a>
-
-					{socialLinks.map((link) => (
-						<a
-							href={link.href}
-							target="_blank"
-							rel="noreferrer"
-							class="button"
-						>
-							{link.label}
-						</a>
-					))}
+		<section class="contact" id="contact">
+			<div class="wrap">
+				<div class="contact-panel">
+					<div>
+						<div class="contact-text">
+							Open to fullstack roles across enterprise and financial systems.
+						</div>
+						<div class="contact-links">
+							{socialLinks.map((link) => (
+								<a href={link.href}>{link.label.toLowerCase()} — {link.href === `mailto:${email}` ? email : link.href}</a>
+							))}
+						</div>
+					</div>
+					<a class="btn-primary" href={`mailto:${email}`}>Send an email</a>
 				</div>
 			</div>
 		</section>
 	</main>
-
-	<footer class="footer">
-		<div class="footer-content">
-			<p>© {new Date().getFullYear()} {name}</p>
-			<p class="footer-note">{role} · {location}</p>
-		</div>
-	</footer>
 </Layout>
-
-<style>
-	main {
-		width: 100%;
-	}
-
-	/* Hero */
-	.hero {
-		min-height: 88vh;
-		width: 100%;
-		max-width: var(--max-width);
-		margin: 0 auto;
-		padding: 9.5rem 2rem 5.5rem;
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-	}
-
-	.eyebrow {
-		font-family: var(--font-mono);
-		font-size: 0.78rem;
-		letter-spacing: 0.08em;
-		text-transform: uppercase;
-		color: var(--color-subtle);
-		margin-bottom: 1.5rem;
-		display: inline-flex;
-		align-items: center;
-		gap: 0.55rem;
-	}
-
-	.status-dot {
-		width: 6px;
-		height: 6px;
-		border-radius: 50%;
-		background: #22c55e;
-		display: inline-block;
-	}
-
-	h1 {
-		font-size: clamp(2.5rem, 6vw, 4.25rem);
-		font-weight: 600;
-		line-height: 1.08;
-		letter-spacing: -0.035em;
-		color: var(--color-text);
-		overflow-wrap: break-word;
-	}
-
-	.role {
-		margin-top: 1rem;
-		font-size: clamp(1.15rem, 2.4vw, 1.35rem);
-		font-weight: 400;
-		color: var(--color-muted);
-		letter-spacing: -0.01em;
-	}
-
-	.intro {
-		max-width: 640px;
-		margin-top: 2rem;
-		font-size: 1.05rem;
-		line-height: 1.75;
-		color: var(--color-text-secondary);
-		overflow-wrap: break-word;
-	}
-
-	.skills {
-		display: flex;
-		flex-wrap: wrap;
-		gap: 0.45rem;
-		margin-top: 2rem;
-		max-width: 720px;
-	}
-
-	.skills span {
-		font-family: var(--font-mono);
-		font-size: 0.74rem;
-		letter-spacing: 0.02em;
-		padding: 0.25rem 0.55rem;
-		border: 1px solid var(--color-border);
-		border-radius: var(--radius-sm);
-		background: var(--color-surface);
-		color: var(--color-tag-text);
-		white-space: nowrap;
-	}
-
-	.actions {
-		display: flex;
-		gap: 0.85rem;
-		margin-top: 2.75rem;
-		flex-wrap: wrap;
-		min-width: 0;
-	}
-
-	.button {
-		display: inline-flex;
-		align-items: center;
-		justify-content: center;
-		font-family: var(--font-mono);
-		font-size: 0.8rem;
-		letter-spacing: 0.03em;
-		padding: 0.65rem 1.15rem;
-		border: 1px solid var(--color-border-light);
-		border-radius: var(--radius-sm);
-		background: transparent;
-		color: var(--color-text);
-		transition:
-			background var(--transition-fast),
-			color var(--transition-fast),
-			border-color var(--transition-fast);
-		min-width: 0;
-		overflow-wrap: anywhere;
-	}
-
-	.button:hover {
-		background: var(--color-surface-hover);
-		border-color: var(--color-border-highlight);
-		color: var(--color-text);
-	}
-
-	.button.primary {
-		background: var(--color-text);
-		color: var(--color-bg);
-		border-color: var(--color-text);
-		font-weight: 500;
-	}
-
-	.button.primary:hover {
-		background: #e4e4e7;
-		border-color: #e4e4e7;
-		color: #000;
-	}
-
-	/* Sections */
-	.section {
-		width: 100%;
-		max-width: var(--max-width);
-		margin: 0 auto;
-		padding: var(--section-padding);
-		display: grid;
-		grid-template-columns: 200px minmax(0, 1fr);
-		gap: 3.5rem;
-		border-top: 1px solid var(--color-border);
-	}
-
-	.section-label {
-		font-family: var(--font-mono);
-		color: var(--color-subtle);
-		font-size: 0.74rem;
-		font-weight: 500;
-		letter-spacing: 0.14em;
-		padding-top: 0.35rem;
-	}
-
-	.section-content {
-		min-width: 0;
-	}
-
-	.section-content h2 {
-		max-width: 720px;
-		font-size: clamp(1.4rem, 2.5vw, 1.85rem);
-		font-weight: 600;
-		line-height: 1.3;
-		letter-spacing: -0.025em;
-		color: var(--color-text);
-		overflow-wrap: break-word;
-	}
-
-	.section-content p {
-		max-width: 640px;
-		margin-top: 1.25rem;
-		color: var(--color-muted);
-		font-size: 0.975rem;
-		line-height: 1.7;
-		overflow-wrap: break-word;
-	}
-
-	.section-content .actions {
-		margin-top: 2rem;
-	}
-
-	/* Experience */
-	.experience-list {
-		display: flex;
-		flex-direction: column;
-		margin-top: 2.5rem;
-	}
-
-	.experience-item {
-		display: flex;
-		flex-direction: column;
-		gap: 0.6rem;
-		padding: 2rem 0;
-		border-bottom: 1px solid var(--color-border);
-	}
-
-	.experience-item:first-child {
-		padding-top: 0;
-	}
-
-	.experience-item:last-child {
-		border-bottom: none;
-		padding-bottom: 0;
-	}
-
-	.experience-header {
-		display: flex;
-		justify-content: space-between;
-		align-items: baseline;
-		gap: 1rem;
-	}
-
-	.experience-title-group {
-		display: flex;
-		flex-direction: column;
-		gap: 0.15rem;
-		min-width: 0;
-	}
-
-	.experience-title {
-		font-size: 1.05rem;
-		font-weight: 600;
-		color: var(--color-text);
-		letter-spacing: -0.015em;
-	}
-
-	.experience-company {
-		font-size: 0.875rem;
-		color: var(--color-muted);
-	}
-
-	.experience-period {
-		font-family: var(--font-mono);
-		font-size: 0.75rem;
-		color: var(--color-subtle);
-		white-space: nowrap;
-		flex-shrink: 0;
-		letter-spacing: 0.02em;
-	}
-
-	.experience-project {
-		font-size: 0.9rem;
-		color: var(--color-text-secondary);
-		margin-top: 0.2rem;
-		overflow-wrap: break-word;
-	}
-
-	.experience-project strong {
-		color: var(--color-text);
-		font-weight: 600;
-	}
-
-	.experience-bullets {
-		display: flex;
-		flex-direction: column;
-		gap: 0.4rem;
-		margin-top: 0.65rem;
-		padding-left: 1.1rem;
-		list-style: disc;
-	}
-
-	.experience-bullets li {
-		font-size: 0.875rem;
-		color: var(--color-text-secondary);
-		line-height: 1.6;
-		overflow-wrap: break-word;
-	}
-
-	.experience-bullets li::marker {
-		color: var(--color-border-highlight);
-	}
-
-	.experience-tech {
-		display: flex;
-		flex-wrap: wrap;
-		gap: 0.35rem;
-		margin-top: 0.75rem;
-	}
-
-	.experience-tech span {
-		font-family: var(--font-mono);
-		font-size: 0.7rem;
-		padding: 0.2rem 0.5rem;
-		border: 1px solid var(--color-border);
-		border-radius: var(--radius-sm);
-		background: var(--color-tag-bg);
-		color: var(--color-tag-text);
-		white-space: nowrap;
-	}
-
-	/* Work / Projects */
-	.project-grid {
-		display: grid;
-		grid-template-columns: repeat(2, minmax(0, 1fr));
-		gap: 1.25rem;
-		margin-top: 2.5rem;
-	}
-
-	.project-card {
-		display: flex;
-		flex-direction: column;
-		min-width: 0;
-		padding: 1.5rem;
-		background: var(--color-surface);
-		border: 1px solid var(--color-border);
-		border-radius: var(--radius-md);
-		transition:
-			border-color var(--transition-fast),
-			background var(--transition-fast);
-	}
-
-	.project-card:hover {
-		border-color: var(--color-border-light);
-		background: var(--color-surface-hover);
-	}
-
-	.project-header {
-		display: flex;
-		justify-content: space-between;
-		align-items: flex-start;
-		gap: 0.75rem;
-		flex-wrap: wrap;
-	}
-
-	.project-title-group {
-		display: flex;
-		flex-direction: column;
-		gap: 0.2rem;
-		min-width: 0;
-	}
-
-	.project-title {
-		font-size: 1.05rem;
-		font-weight: 600;
-		color: var(--color-text);
-		line-height: 1.3;
-		letter-spacing: -0.015em;
-	}
-
-	.project-context {
-		font-family: var(--font-mono);
-		font-size: 0.74rem;
-		color: var(--color-subtle);
-		letter-spacing: 0.01em;
-	}
-
-	.project-badge {
-		display: inline-flex;
-		align-items: center;
-		font-family: var(--font-mono);
-		font-size: 0.7rem;
-		font-weight: 500;
-		line-height: 1.35;
-		padding: 0.2rem 0.5rem;
-		border-radius: var(--radius-sm);
-		white-space: normal;
-		letter-spacing: 0.02em;
-	}
-
-	.badge-pro {
-		color: var(--color-muted);
-		background: rgba(255, 255, 255, 0.02);
-		border: 1px solid var(--color-border);
-	}
-
-	.badge-personal {
-		color: var(--color-text-secondary);
-		background: rgba(255, 255, 255, 0.03);
-		border: 1px dashed var(--color-border-highlight);
-	}
-
-	.project-description {
-		margin-top: 0.85rem;
-		font-size: 0.875rem;
-		color: var(--color-muted);
-		line-height: 1.6;
-		flex-grow: 1;
-		overflow-wrap: break-word;
-	}
-
-	.project-tech {
-		display: flex;
-		flex-wrap: wrap;
-		gap: 0.35rem;
-		margin-top: 1.25rem;
-	}
-
-	.project-tech span {
-		font-family: var(--font-mono);
-		font-size: 0.7rem;
-		padding: 0.2rem 0.5rem;
-		border: 1px solid var(--color-border);
-		border-radius: var(--radius-sm);
-		background: var(--color-tag-bg);
-		color: var(--color-tag-text);
-		white-space: nowrap;
-	}
-
-	.project-links {
-		display: flex;
-		flex-wrap: wrap;
-		gap: 0.75rem;
-		margin-top: 1rem;
-		padding-top: 0.75rem;
-		border-top: 1px solid var(--color-border);
-	}
-
-	.project-link {
-		display: inline-flex;
-		align-items: center;
-		font-family: var(--font-mono);
-		font-size: 0.75rem;
-		color: var(--color-text-secondary);
-		text-decoration: underline;
-		text-underline-offset: 3px;
-		min-height: 40px;
-		transition: color var(--transition-fast);
-	}
-
-	.project-link:hover {
-		color: var(--color-text);
-	}
-
-	.sr-only {
-		position: absolute;
-		width: 1px;
-		height: 1px;
-		padding: 0;
-		margin: -1px;
-		overflow: hidden;
-		clip: rect(0, 0, 0, 0);
-		white-space: nowrap;
-		border: 0;
-	}
-
-	/* Skills */
-	.skill-grid {
-		display: grid;
-		gap: 1.25rem;
-		margin-top: 2.5rem;
-	}
-
-	.skill-category {
-		display: flex;
-		flex-direction: column;
-		gap: 0.85rem;
-		padding: 1.5rem;
-		background: var(--color-surface);
-		border: 1px solid var(--color-border);
-		border-radius: var(--radius-md);
-	}
-
-	.skill-header h3 {
-		font-size: 0.95rem;
-		font-weight: 600;
-		color: var(--color-text);
-		letter-spacing: -0.01em;
-	}
-
-	.skill-tags {
-		display: flex;
-		flex-wrap: wrap;
-		gap: 0.4rem;
-	}
-
-	.skill-tags span {
-		font-family: var(--font-mono);
-		font-size: 0.75rem;
-		padding: 0.25rem 0.55rem;
-		border: 1px solid var(--color-border);
-		border-radius: var(--radius-sm);
-		background: var(--color-tag-bg);
-		color: var(--color-tag-text);
-		white-space: nowrap;
-	}
-
-	/* Footer */
-	.footer {
-		width: 100%;
-		border-top: 1px solid var(--color-border);
-		padding: 3rem 2rem;
-	}
-
-	.footer-content {
-		max-width: var(--max-width);
-		margin: 0 auto;
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
-		font-family: var(--font-mono);
-		font-size: 0.78rem;
-		color: var(--color-subtle);
-		flex-wrap: wrap;
-		gap: 1rem;
-	}
-
-	/* Responsive */
-	@media (max-width: 900px) {
-		.project-grid {
-			grid-template-columns: 1fr;
-		}
-	}
-
-	@media (max-width: 700px) {
-		.hero {
-			min-height: 85vh;
-			padding: 7rem 1.25rem 4rem;
-		}
-
-		h1 {
-			font-size: clamp(2.25rem, 9vw, 3.5rem);
-		}
-
-		.role {
-			font-size: 1.15rem;
-		}
-
-		.intro {
-			font-size: 0.975rem;
-		}
-
-		.section {
-			grid-template-columns: 1fr;
-			gap: 1.5rem;
-			padding: var(--section-padding-mobile);
-		}
-
-		.experience-header {
-			flex-direction: column;
-			gap: 0.25rem;
-		}
-
-		.experience-period {
-			white-space: normal;
-		}
-
-		.project-card,
-		.skill-category {
-			padding: 1.25rem;
-		}
-
-		.footer-content {
-			flex-direction: column;
-			align-items: flex-start;
-			gap: 0.5rem;
-		}
-	}
-</style>
