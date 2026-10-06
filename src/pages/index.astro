@@ -3,7 +3,7 @@ import Layout from '../layouts/Layout.astro';
 import Navbar from '../components/Navbar.astro';
 
 const name = 'Reji Pikriyansah';
-const role = 'Fullstack Developer';
+const role = 'Frontend-strong Fullstack Developer';
 const email = 'rejipyansah@gmail.com';
 const github = 'https://github.com/rejipyansah';
 const linkedin = 'https://www.linkedin.com/in/reji-pikriyansah';
@@ -11,67 +11,100 @@ const linkedin = 'https://www.linkedin.com/in/reji-pikriyansah';
 const experiences = [
 	{
 		project: 'Invoice Pro',
-		role: 'Fullstack Developer',
-		date: 'Aug 2026 – Present',
-		tags: ['React', 'Express.js', 'PostgreSQL'],
-		desc: 'Enterprise AP invoice processing system; resolving production issues in three-way matching, approval workflows, voucher generation, and banking reconciliation.',
+		role: 'Fullstack Developer (maintenance)',
+		date: 'Agu 2026 – sekarang',
+		tags: ['React', 'Express.js', 'PostgreSQL', 'Docker'],
+		lead: 'Sistem pemrosesan invoice AP untuk enterprise.',
+		bullets: [
+			'Memperbaiki bug di environment development dan production (three-way matching, approval workflow, voucher, rekonsiliasi bank).',
+			'Mengubah proses generate voucher dari manual menjadi otomatis.',
+			'Mengubah tabel dari client-side ke server-side karena data sudah lebih dari 5.000 baris.',
+			'Memperbaiki data tanggal yang bergeser ±7 jam setelah zona waktu worker diubah ke UTC+7.',
+			'Menangani Docker dan deployment; sesekali menyentuh Airflow.',
+		],
 	},
 	{
-		project: 'Bank BJBS — Internal Web Applications',
+		project: 'Bank BJBS: Aplikasi Internal',
 		role: 'Frontend Developer',
-		date: 'Aug 2025 – Jul 2026',
-		tags: ['Laravel', 'React', 'Next.js'],
-		desc: 'Built and maintained multiple internal web apps with responsive interfaces, collaborating directly with backend engineers, QA, and business stakeholders.',
+		date: 'Agu 2025 – Jul 2026',
+		tags: ['Laravel (Blade)', 'React', 'Next.js'],
+		bullets: [
+			'SISUKA (surat-menyurat): memperbaiki bug penempatan tanda tangan, lalu menyelesaikan permintaan klien: tanda tangan drag & drop dengan resize, penggantian tanda tangan dengan QRIS, penggantian library PDF, dan kompresi hasil PDF dari ±15 MB menjadi ratusan KB.',
+			'SIPADD dan SMART: mengerjakan sebagian besar frontend bersama tim.',
+		],
 	},
 	{
 		project: 'KMS BPK RI',
 		role: 'Fullstack Developer',
 		date: 'Jan 2025 – Feb 2026',
 		tags: ['React (Vite)', 'Golang', 'SQL Server'],
-		desc: 'Built and enhanced knowledge management features with React (Vite) and Golang, including backend logic and data persistence in SQL Server.',
+		bullets: [
+			'Mengerjakan sebagian besar frontend dan sebagian backend (logika bisnis, query, penyimpanan data) pada fitur knowledge management.',
+			'Dikerjakan paralel dengan proyek BJBS.',
+		],
 	},
 	{
-		project: 'Tap-MM — Warehouse Management System',
+		project: 'Tap-MM: Warehouse Management System',
 		role: 'Fullstack Developer',
-		date: 'Aug 2024 – Dec 2024',
+		date: 'Agu 2024 – Des 2024',
 		tags: ['React', 'GraphQL', 'Golang', 'PostgreSQL'],
-		desc: 'Implemented GraphQL APIs and integrated the React frontend with the Golang backend and PostgreSQL database.',
+		bullets: [
+			'Dipindahkan dari SISAPRA karena proyek membutuhkan developer yang bisa frontend dan backend.',
+			'Bug fixing dan membantu rekan tim lintas modul.',
+		],
 	},
 	{
-		project: 'SISAPRA — Satpol PP DKI Jakarta',
+		project: 'SISAPRA: Satpol PP DKI Jakarta',
 		role: 'Frontend Developer',
-		date: 'Mar 2024 – Aug 2024',
-		tags: [],
-		desc: 'Developed responsive web interfaces and integrated them with backend services and database, including functional testing and bug fixing.',
+		date: 'Mar 2024 – Agu 2024',
+		tags: ['Next.js'],
+		bullets: [
+			'Membangun modul absensi (frontend), mengintegrasikannya dengan backend, serta melakukan functional testing dan bug fixing.',
+		],
 	},
 	{
-		project: 'Loan Management System — Bank BJB',
+		project: 'Loan Management System: Bank BJB',
 		role: 'Frontend Developer',
-		date: 'Aug 2022 – Feb 2024',
-		tags: ['Next.js', 'SQL Server'],
-		desc: 'Built interfaces for the KPR and consumer banking loan platform with Next.js and SQL Server, working with QA and Security teams to meet banking-grade reliability and security standards.',
+		date: 'Agu 2022 – Feb 2024',
+		tags: ['Next.js', 'React Native', 'SQL Server'],
+		bullets: [
+			'KPR: mengerjakan sebagian besar modul frontend, bekerja bersama tim QA dan Security agar sesuai standar keandalan dan keamanan perbankan.',
+			'Konsumer: di masa awal bergabung, mengerjakan sebagian kecil frontend web dan aplikasi mobile (React Native).',
+		],
 	},
 ];
 
 const skillCategories = [
 	{
-		label: 'Frontend',
-		items: 'HTML · CSS · JavaScript · TypeScript · React · Next.js · Vite · Laravel',
+		label: 'Sehari-hari',
+		items: 'React, Next.js, TypeScript, JavaScript, Laravel (Blade)',
 	},
 	{
-		label: 'Backend',
-		items: 'Golang · Node.js · Express.js · ASP.NET Core · GraphQL · CodeIgniter',
+		label: 'Backend & data (berkembang)',
+		items: 'Golang, ASP.NET Core, Node.js/Express, GraphQL · PostgreSQL, SQL Server (query, view, materialized view)',
 	},
 	{
-		label: 'Database',
-		items: 'PostgreSQL · MySQL · SQL Server · MongoDB · NoSQL',
+		label: 'Mobile',
+		items: 'React Native (proyek Konsumer)',
+	},
+	{
+		label: 'Delivery',
+		items: 'Git (workflow tim), Docker, deployment, functional/manual testing · Airflow (sesekali)',
+	},
+	{
+		label: 'Pernah dipakai',
+		items: 'CodeIgniter, MySQL, MongoDB',
+	},
+	{
+		label: 'Sedang dipelajari',
+		items: 'automated testing, CI/CD, DevOps',
 	},
 ];
 ---
 
 <Layout
 	title={`${name} — ${role}`}
-	description={`${name} — ${role} with 4+ years of web development experience in enterprise and banking applications.`}
+	description="Portfolio Reji Pikriyansah — Frontend-strong Fullstack Developer. 4+ tahun membangun aplikasi web untuk perbankan, pemerintahan, dan enterprise. Kuat di React/Next.js, terus berkembang ke backend (Golang, ASP.NET Core), database, dan deployment dengan Docker."
 	author={name}
 >
 	<Navbar />
@@ -82,17 +115,19 @@ const skillCategories = [
 			<div class="wrap">
 				<div class="kicker">Portfolio</div>
 				<h1>Reji<br />Pikriyansah</h1>
-				<p class="role">Fullstack developer, from the frontend outward</p>
+				<p class="role">Frontend-strong Fullstack Developer</p>
 				<p class="intro">
-					4+ years building web applications across banking, government,
-					and enterprise environments — starting from frontend development
-					and expanding into backend services, databases, and production systems.
+					4+ tahun membangun aplikasi web untuk perbankan, pemerintahan, dan
+					enterprise. Kuat di React/Next.js, terus berkembang ke backend
+					(Golang, ASP.NET Core), database, dan deployment dengan Docker.
+				</p>
+				<p class="hero-meta">
+					Bandung · WFO / hybrid / WFH · Bersedia ditempatkan di luar Bandung · Notice period 1 bulan (dapat dinegosiasikan)
 				</p>
 
 				<div class="cta-row">
-					<a class="btn-primary" href="#work">View work</a>
-					<a class="btn-secondary" href="/Reji_Pikriyansah_CV.pdf" download>Download CV</a>
-					<a class="link-text" href="#contact">Get in touch</a>
+					<a class="btn-primary" href="/Reji_Pikriyansah_CV.pdf" download>Unduh CV</a>
+					<a class="btn-secondary" href={`mailto:${email}`}>Kirim email</a>
 				</div>
 
 				<div class="hero-social">
@@ -107,15 +142,15 @@ const skillCategories = [
 				<div class="strip">
 					<div class="item">
 						<div class="num">4+</div>
-						<div class="label">Years building web applications</div>
+						<div class="label">Tahun membangun aplikasi web</div>
 					</div>
 					<div class="item">
-						<div class="num">Frontend → Fullstack</div>
-						<div class="label">From interfaces to backend systems</div>
+						<div class="num">9</div>
+						<div class="label">Aplikasi yang dikerjakan (Invoice Pro, KMS BPK, Tap-MM, SISAPRA, KPR, Konsumer, SISUKA, SIPADD, SMART)</div>
 					</div>
 					<div class="item">
-						<div class="num">Banking · Government · Enterprise</div>
-						<div class="label">Project experience across industries</div>
+						<div class="num">Perbankan · Pemerintahan · Enterprise</div>
+						<div class="label">Pengalaman lintas industri</div>
 					</div>
 				</div>
 			</div>
@@ -124,16 +159,16 @@ const skillCategories = [
 		<!-- Experience -->
 		<section class="experience" id="experience">
 			<div class="wrap">
-				<div class="s-kicker">Experience</div>
-				<h2 class="s-title">Where I've worked</h2>
+				<div class="s-kicker">Pengalaman</div>
+				<h2 class="s-title">Pengalaman kerja</h2>
 
 				<div class="employer-line">
 					<span class="name">PT Tristar Surya Gemilang</span>
-					<span class="date">Aug 2022 — Present</span>
+					<span class="date">Agu 2022 – sekarang</span>
 				</div>
 				<p class="employer-sub">
-					Multiple project assignments across banking, government, and
-					enterprise systems.
+					Software engineer di software house; ditempatkan di tim klien
+					pada proyek perbankan, pemerintahan, dan enterprise.
 				</p>
 
 				{experiences.map((exp, i) => (
@@ -147,7 +182,12 @@ const skillCategories = [
 							<div class="proj-date">{exp.date}</div>
 						</div>
 						<div class="proj-details">
-							<p class="proj-desc">{exp.desc}</p>
+							{'lead' in exp && exp.lead && <p class="proj-desc">{exp.lead}</p>}
+							<ul class="proj-bullets">
+								{exp.bullets.map((item) => (
+									<li>{item}</li>
+								))}
+							</ul>
 							{exp.tags.length > 0 && (
 								<div class="proj-tags">
 									{exp.tags.map((tag) => (
@@ -161,19 +201,42 @@ const skillCategories = [
 			</div>
 		</section>
 
+		<!-- Cara kerja -->
+		<section class="how" id="how">
+			<div class="wrap">
+				<h2 class="s-title">Cara kerja</h2>
+
+				<div class="how-list">
+					<div class="how-item">
+						<div class="how-item-title">Telusuri sampai akar masalah</div>
+						<p class="how-item-body">Karena mengerjakan frontend dan backend, saya tidak berhenti di tampilan. Contohnya bug tanggal yang bergeser sekitar 7 jam di Invoice Pro: saya telusuri sampai penyebabnya, yaitu perubahan zona waktu worker ke UTC+7.</p>
+					</div>
+					<div class="how-item">
+						<div class="how-item-title">Diskusi dulu, baru bangun</div>
+						<p class="how-item-body">Sebelum mengerjakan fitur, saya cek ke tim backend atau QA soal data yang tersedia dan kebutuhan sebenarnya, supaya tidak ada pengerjaan ulang. Di proyek KPR Bank BJB, saya bekerja bersama tim QA dan Security agar hasilnya sesuai standar keamanan bank.</p>
+					</div>
+					<div class="how-item">
+						<div class="how-item-title">Terbuka soal prioritas dan risiko</div>
+						<p class="how-item-body">Saya pernah memegang dua proyek paralel (BJBS dan KMS). Kalau ada risiko jadwal, saya sampaikan lebih awal dan sebutkan apa yang bisa didahulukan.</p>
+					</div>
+				</div>
+			</div>
+		</section>
+
 		<!-- Featured Project -->
 		<section class="featured" id="work">
 			<div class="featured-head">
-				<div class="s-kicker">Featured project</div>
-				<h2 class="s-title" style="margin-bottom: 0;">What I build for myself</h2>
+				<div class="s-kicker">Proyek pilihan</div>
+				<h2 class="s-title" style="margin-bottom: 0;">Yang saya bangun untuk diri sendiri</h2>
 			</div>
 
+			<!-- TODO: ganti dengan screenshot baru berisi data dummy -->
 			<a
 				class="gallery-frame"
 				href="https://life-os.rejip.my.id/"
 				target="_blank"
 				rel="noopener noreferrer"
-				aria-label="Open the Life OS live demo"
+				aria-label="Buka aplikasi Life OS"
 			>
 				<img
 					src="/life-os.webp"
@@ -188,20 +251,25 @@ const skillCategories = [
 				<div class="fp-top">
 					<div>
 						<h3 class="fp-title">Life OS</h3>
-						<div class="fp-sub">Personal Finance Management Application</div>
+						<div class="fp-sub">Aplikasi manajemen keuangan pribadi · Proyek pribadi sejak 7 Sep 2026, dipakai sendiri</div>
 					</div>
 					<div class="fp-actions">
-						<a class="btn-primary" href="https://life-os.rejip.my.id/" target="_blank" rel="noopener noreferrer">Live demo</a>
+						<!-- TODO: arahkan ke deep link alur guest jika tersedia; saat ini mengarah ke URL aplikasi -->
+						<a class="btn-primary" href="https://life-os.rejip.my.id/" target="_blank" rel="noopener noreferrer">Coba sebagai Guest</a>
+						<!-- TODO: ganti menjadi <a class="btn-secondary" href="URL_REPO">Source code</a> saat URL repo GitHub tersedia -->
+						<span class="btn-secondary" aria-disabled="true">Source code</span>
 					</div>
 				</div>
 
-				<p class="fp-desc">
-					Full-stack personal finance — from domain model to production.
-				</p>
+				<p class="fp-desc">AI mengusulkan, kode memutuskan.</p>
 
 				<p class="fp-body-text">
-					A personal finance application designed to help users manage their accounts,
-					set aside funds, understand their available spending balance, and plan upcoming financial events.
+					Mencatat pengeluaran lewat form itu melelahkan. Di Life OS cukup ketik
+					"jajan 18rb cash". AI (model via Groq API) hanya menafsirkan kalimat itu
+					menjadi usulan transaksi. Backend ASP.NET Core memvalidasi, dan tidak ada
+					yang tersimpan sebelum kamu konfirmasi. Kalau akun tidak disebut, sistem
+					memakai akun default atau meminta kamu memilih. Pilihan bank di atas input
+					ada untuk mempercepat, karena mengetik nama sumber dana terasa lama.
 				</p>
 
 				<div class="fp-stack">
@@ -209,37 +277,38 @@ const skillCategories = [
 					<span class="stack-tag">TypeScript</span>
 					<span class="stack-tag">ASP.NET Core</span>
 					<span class="stack-tag">PostgreSQL</span>
+					<span class="stack-tag">Groq API</span>
 				</div>
 
 				<div class="fp-case">
 					<div>
-						<div class="label">What I built</div>
-						<div class="body">Designed the finance domain model and data flow. Built the frontend with React and TypeScript and the backend API with ASP.NET Core.</div>
+						<div class="label">Yang saya bangun</div>
+						<div class="body">Merancang model domain keuangan dan alur data. Frontend dengan React dan TypeScript, backend API dengan ASP.NET Core.</div>
 					</div>
 					<div>
-						<div class="label">Systems &amp; delivery</div>
-						<div class="body">PostgreSQL for data persistence. Financial calculations for available/free cash. Deployed to production with a custom domain.</div>
+						<div class="label">Sistem &amp; deployment</div>
+						<div class="body">PostgreSQL untuk penyimpanan data. Perhitungan keuangan untuk saldo tersedia/bebas. Di-deploy di domain sendiri.</div>
 					</div>
 				</div>
 
 				<div class="fp-demo">
-					<p class="fp-body-text">
-						Tracking expenses is tedious when every transaction is a form. Life OS lets users
-						describe what happened naturally; the system turns it into a structured transaction
-						preview before anything is saved.
-					</p>
-
-					<div class="fp-notes">
-						<p>Approach: natural input as the primary interaction for finance.</p>
-						<p>Engineering focus: AI handles interpretation, while deterministic application logic validates the result, resolves the account within the current scope, and only creates the transaction after user confirmation.</p>
-					</div>
-
 					<div class="nl-flow">
 						<span class="stack-tag">jajan 18rb cash</span>
 						<span class="nl-arrow" aria-hidden="true">→</span>
-						<span class="stack-tag">Expense · Rp18.000 · Cash</span>
+						<span class="stack-tag">Pengeluaran · Rp18.000 · Cash</span>
 						<span class="nl-arrow" aria-hidden="true">→</span>
-						<span class="stack-tag">Preview: [ Confirm ] [ Edit ]</span>
+						<span class="stack-tag">Pratinjau: [ Konfirmasi ] [ Ubah ]</span>
+					</div>
+
+					<div class="fp-notes">
+						<div>
+							<div class="label">Yang saya pelajari</div>
+							<div class="body">Requirement yang saya tulis sendiri pun ternyata kurang setelah aplikasinya dipakai nyata. Dari sini saya lebih paham kenapa kebutuhan klien sering baru jelas setelah produknya digunakan. ASP.NET Core saya pelajari sambil membangun: konsepnya sama, yang berbeda sintaks dan aturan tiap bahasa.</div>
+						</div>
+						<div>
+							<div class="label">Berikutnya</div>
+							<div class="body">automated testing dan CI/CD.</div>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -248,8 +317,8 @@ const skillCategories = [
 		<!-- Skills -->
 		<section class="skills" id="skills">
 			<div class="wrap">
-				<div class="s-kicker">Skills</div>
-				<h2 class="s-title">Toolset</h2>
+				<div class="s-kicker">Keahlian</div>
+				<h2 class="s-title">Teknologi</h2>
 
 				{skillCategories.map((cat) => (
 					<div class="skill-row">
@@ -260,33 +329,29 @@ const skillCategories = [
 			</div>
 		</section>
 
-		<!-- Education -->
+		<!-- Education & Languages -->
 		<section class="education" id="education">
 			<div class="wrap">
-				<div class="s-kicker">Education</div>
-				<h2 class="s-title">Background</h2>
+				<div class="s-kicker">Pendidikan</div>
+				<h2 class="s-title">Latar belakang</h2>
 
 				<div class="edu-card">
 					<div class="edu-header">
 						<div class="edu-name">Universitas Jenderal Achmad Yani Cimahi</div>
-						<div class="edu-date">Aug 2017 — Feb 2022</div>
+						<div class="edu-date">Agu 2017 – Feb 2022</div>
 					</div>
-					<div class="edu-degree">Bachelor's Degree · Informatics Engineering</div>
-					<div class="edu-gpa">GPA 3.51</div>
+					<div class="edu-degree">S1 Teknik Informatika · IPK 3,51</div>
 				</div>
-			</div>
-		</section>
 
-		<!-- Languages -->
-		<section class="languages">
-			<div class="wrap">
-				<div class="lang-row">
-					<div class="lang-label">Bahasa Indonesia</div>
-					<div class="lang-level">Native</div>
-				</div>
-				<div class="lang-row">
-					<div class="lang-label">English</div>
-					<div class="lang-level">Intermediate</div>
+				<div class="edu-langs">
+					<div class="lang-row">
+						<div class="lang-label">Bahasa Indonesia</div>
+						<div class="lang-level">Penutur asli</div>
+					</div>
+					<div class="lang-row">
+						<div class="lang-label">Bahasa Inggris</div>
+						<div class="lang-level">Menengah</div>
+					</div>
 				</div>
 			</div>
 		</section>
@@ -297,11 +362,12 @@ const skillCategories = [
 				<div class="contact-panel">
 					<div>
 						<div class="contact-text">
-							Let's build something useful.
+							Mari membangun sesuatu yang berguna.
 						</div>
 						<p class="contact-desc">
-							I'm open to fullstack opportunities where I can work across
-							frontend, backend, and the systems behind them.
+							Terbuka untuk peran Frontend atau Fullstack (FE-heavy) di software
+							house. Prioritas Bandung; WFO, hybrid, atau WFH; bersedia ditempatkan
+							di luar Bandung. Notice period 1 bulan, dapat dinegosiasikan.
 						</p>
 						<div class="contact-links">
 							<a href={`mailto:${email}`}>{email}</a>
@@ -310,8 +376,8 @@ const skillCategories = [
 						</div>
 					</div>
 					<div class="contact-actions">
-						<a class="btn-primary" href={`mailto:${email}`}>Send an email</a>
-						<a class="btn-secondary" href="/Reji_Pikriyansah_CV.pdf" download>Download CV</a>
+						<a class="btn-primary" href={`mailto:${email}`}>Kirim email</a>
+						<a class="btn-secondary" href="/Reji_Pikriyansah_CV.pdf" download>Unduh CV</a>
 					</div>
 				</div>
 			</div>
