@@ -5,89 +5,67 @@ import Navbar from '../components/Navbar.astro';
 const name = 'Reji Pikriyansah';
 const role = 'Fullstack Developer';
 const email = 'rejipyansah@gmail.com';
-const linkedin = 'https://www.linkedin.com/in/reji-pikriyansah-a3477219b/';
+const github = 'https://github.com/rejipyansah';
+const linkedin = 'https://www.linkedin.com/in/reji-pikriyansah';
 
 const experiences = [
 	{
 		project: 'Invoice Pro',
 		role: 'Fullstack Developer',
-		date: 'Aug 2026 — Present',
-		bullets: [
-			'Develop and maintain an enterprise AP invoice processing system using React.js, Express.js, and PostgreSQL.',
-			'Resolve production issues across three-way matching, approval workflows, and voucher generation edge cases.',
-			'Troubleshoot application performance and banking reconciliation issues in collaboration with QA and business teams.',
-		],
+		date: 'Aug 2026 – Present',
+		tags: ['React', 'Express.js', 'PostgreSQL'],
+		desc: 'Enterprise AP invoice processing system; resolving production issues in three-way matching, approval workflows, voucher generation, and banking reconciliation.',
 	},
 	{
 		project: 'Bank BJBS — Internal Web Applications',
 		role: 'Frontend Developer',
-		date: 'Aug 2025 — Jul 2026',
-		bullets: [
-			'Develop and maintain internal web applications using Laravel, React.js, and Next.js.',
-			'Build responsive interfaces based on business and user requirements.',
-			'Troubleshoot application issues and improve frontend performance in collaboration with backend developers, QA engineers, and business teams.',
-		],
+		date: 'Aug 2025 – Jul 2026',
+		tags: ['Laravel', 'React', 'Next.js'],
+		desc: 'Built and maintained multiple internal web apps with responsive interfaces, collaborating directly with backend engineers, QA, and business stakeholders.',
 	},
 	{
 		project: 'KMS BPK RI',
 		role: 'Fullstack Developer',
-		date: 'Jan 2025 — Feb 2026',
-		bullets: [
-			'Build and enhance internal knowledge management features using React (Vite) and Golang.',
-			'Design and maintain backend logic and SQL Server data persistence.',
-			'Support system stability through issue resolution, functional validation, and performance improvements.',
-		],
+		date: 'Jan 2025 – Feb 2026',
+		tags: ['React (Vite)', 'Golang', 'SQL Server'],
+		desc: 'Built and enhanced knowledge management features with React (Vite) and Golang, including backend logic and data persistence in SQL Server.',
 	},
 	{
 		project: 'Tap-MM — Warehouse Management System',
 		role: 'Fullstack Developer',
-		date: 'Aug 2024 — Dec 2024',
-		bullets: [
-			'Contribute to feature development for an existing warehouse management system using React, GraphQL, Golang, and PostgreSQL.',
-			'Implement GraphQL APIs and integrate frontend features with backend services and database workflows.',
-			'Perform bug fixing and functional testing to support application reliability.',
-		],
+		date: 'Aug 2024 – Dec 2024',
+		tags: ['React', 'GraphQL', 'Golang', 'PostgreSQL'],
+		desc: 'Implemented GraphQL APIs and integrated the React frontend with the Golang backend and PostgreSQL database.',
 	},
 	{
 		project: 'SISAPRA — Satpol PP DKI Jakarta',
 		role: 'Frontend Developer',
-		date: 'Mar 2024 — Aug 2024',
-		bullets: [
-			'Develop responsive web interfaces and integrate frontend features with backend APIs.',
-			'Connect application features with backend services and database workflows to support system functionality.',
-			'Perform functional testing and bug fixing to improve application reliability and performance.',
-		],
+		date: 'Mar 2024 – Aug 2024',
+		tags: [],
+		desc: 'Developed responsive web interfaces and integrated them with backend services and database, including functional testing and bug fixing.',
 	},
 	{
 		project: 'Loan Management System — Bank BJB',
 		role: 'Frontend Developer',
-		date: 'Aug 2022 — Feb 2024',
-		bullets: [
-			'Build and maintain a scalable Loan Management System supporting KPR and consumer banking products using Next.js and SQL Server.',
-			'Develop responsive interfaces integrated with backend services to support banking workflows.',
-			'Work with QA and Security teams to meet reliability and security requirements for a banking application.',
-		],
+		date: 'Aug 2022 – Feb 2024',
+		tags: ['Next.js', 'SQL Server'],
+		desc: 'Built interfaces for the KPR and consumer banking loan platform with Next.js and SQL Server, working with QA and Security teams to meet banking-grade reliability and security standards.',
 	},
 ];
 
 const skillCategories = [
 	{
 		label: 'Frontend',
-		items: 'HTML · CSS · JavaScript · TypeScript · React · Next.js · Vite',
+		items: 'HTML · CSS · JavaScript · TypeScript · React · Next.js · Vite · Laravel',
 	},
 	{
 		label: 'Backend',
-		items: 'Golang · Node.js · Express.js · CodeIgniter',
+		items: 'Golang · Node.js · Express.js · ASP.NET Core · GraphQL · CodeIgniter',
 	},
 	{
 		label: 'Database',
-		items: 'PostgreSQL · MySQL · MongoDB · SQL Server · NoSQL',
+		items: 'PostgreSQL · MySQL · SQL Server · MongoDB · NoSQL',
 	},
-];
-
-const socialLinks = [
-	{ label: 'Email', href: `mailto:${email}` },
-	{ label: 'LinkedIn', href: linkedin },
 ];
 ---
 
@@ -113,7 +91,17 @@ const socialLinks = [
 
 				<div class="cta-row">
 					<a class="btn-primary" href="#work">View work</a>
+					<a class="btn-secondary" href="/Reji_Pikriyansah_CV.pdf" download>Download CV</a>
 					<a class="link-text" href="#contact">Get in touch</a>
+				</div>
+
+				<div class="hero-social">
+					<a href={github} target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+						<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+					</a>
+					<a href={linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+						<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+					</a>
 				</div>
 
 				<div class="strip">
@@ -137,7 +125,7 @@ const socialLinks = [
 		<section class="experience" id="experience">
 			<div class="wrap">
 				<div class="s-kicker">Experience</div>
-				<div class="s-title">Where I've worked</div>
+				<h2 class="s-title">Where I've worked</h2>
 
 				<div class="employer-line">
 					<span class="name">PT Tristar Surya Gemilang</span>
@@ -149,24 +137,26 @@ const socialLinks = [
 				</p>
 
 				{experiences.map((exp, i) => (
-					<details class="proj-line">
-						<summary class="proj-summary">
+					<div class="proj-line">
+						<div class="proj-summary">
 							<span class="proj-idx">{String(i + 1).padStart(2, '0')}</span>
 							<div class="proj-info">
 								<div class="proj-name">{exp.project}</div>
 								<div class="proj-role">{exp.role}</div>
 							</div>
 							<div class="proj-date">{exp.date}</div>
-							<span class="proj-toggle" aria-hidden="true"></span>
-						</summary>
-						<div class="proj-details">
-							<ul>
-								{exp.bullets.map((bullet) => (
-									<li>{bullet}</li>
-								))}
-							</ul>
 						</div>
-					</details>
+						<div class="proj-details">
+							<p class="proj-desc">{exp.desc}</p>
+							{exp.tags.length > 0 && (
+								<div class="proj-tags">
+									{exp.tags.map((tag) => (
+										<span class="stack-tag">{tag}</span>
+									))}
+								</div>
+							)}
+						</div>
+					</div>
 				))}
 			</div>
 		</section>
@@ -175,32 +165,43 @@ const socialLinks = [
 		<section class="featured" id="work">
 			<div class="featured-head">
 				<div class="s-kicker">Featured project</div>
-				<div class="s-title" style="margin-bottom: 0;">What I build for myself</div>
+				<h2 class="s-title" style="margin-bottom: 0;">What I build for myself</h2>
 			</div>
 
-			<div class="gallery-frame">
-				<span>product preview — replace with Life OS screenshot</span>
-			</div>
+			<a
+				class="gallery-frame"
+				href="https://life-os.rejip.my.id/"
+				target="_blank"
+				rel="noopener noreferrer"
+				aria-label="Open the Life OS live demo"
+			>
+				<img
+					src="/life-os.webp"
+					alt="Life OS personal finance dashboard showing the available spending balance card, natural-language transaction input, and account overview"
+					loading="lazy"
+					width="3306"
+					height="1456"
+				/>
+			</a>
 
 			<div class="fp-body">
 				<div class="fp-top">
 					<div>
-						<div class="fp-title">Life OS</div>
-						<div class="fp-sub">Personal Finance System</div>
+						<h3 class="fp-title">Life OS</h3>
+						<div class="fp-sub">Personal Finance Management Application</div>
 					</div>
 					<div class="fp-actions">
-						<a class="btn-primary" href="https://life-os.rejipyansah.workers.dev/" target="_blank" rel="noreferrer">View live</a>
+						<a class="btn-primary" href="https://life-os.rejip.my.id/" target="_blank" rel="noopener noreferrer">Live demo</a>
 					</div>
 				</div>
 
 				<p class="fp-desc">
-					Making everyday financial tracking require less friction.
+					Full-stack personal finance — from domain model to production.
 				</p>
 
 				<p class="fp-body-text">
-					Tracking everyday expenses can become tedious when every transaction requires multiple manual steps.
-					Life OS was built to reduce that friction by letting users describe what happened naturally instead
-					of treating every action as a form to fill out.
+					A personal finance application designed to help users manage their accounts,
+					set aside funds, understand their available spending balance, and plan upcoming financial events.
 				</p>
 
 				<div class="fp-stack">
@@ -212,26 +213,33 @@ const socialLinks = [
 
 				<div class="fp-case">
 					<div>
-						<div class="label">Approach</div>
-						<div class="body">Life OS uses natural input as the primary interaction for finance. A user can type something like <code>jajan 18rb cash</code>, and the system interprets the input into a structured transaction preview before anything is persisted.</div>
+						<div class="label">What I built</div>
+						<div class="body">Designed the finance domain model and data flow. Built the frontend with React and TypeScript and the backend API with ASP.NET Core.</div>
 					</div>
 					<div>
-						<div class="label">Engineering focus</div>
-						<div class="body">AI handles interpretation, while deterministic application logic validates the result, resolves the account within the current scope, and only creates the transaction after user confirmation.</div>
+						<div class="label">Systems &amp; delivery</div>
+						<div class="body">PostgreSQL for data persistence. Financial calculations for available/free cash. Deployed to production with a custom domain.</div>
 					</div>
 				</div>
 
 				<div class="fp-demo">
-					<div class="demo-flow">
-						<div class="demo-input"><code>jajan 18rb cash</code></div>
-						<div class="demo-arrow">↓</div>
-						<div class="demo-result">Expense · Rp18.000 · Cash</div>
-						<div class="demo-arrow">↓</div>
-						<div class="demo-preview">Preview</div>
-						<div class="demo-actions">
-							<span class="demo-btn">[ Confirm ]</span>
-							<span class="demo-btn">[ Edit ]</span>
-						</div>
+					<p class="fp-body-text">
+						Tracking expenses is tedious when every transaction is a form. Life OS lets users
+						describe what happened naturally; the system turns it into a structured transaction
+						preview before anything is saved.
+					</p>
+
+					<div class="fp-notes">
+						<p>Approach: natural input as the primary interaction for finance.</p>
+						<p>Engineering focus: AI handles interpretation, while deterministic application logic validates the result, resolves the account within the current scope, and only creates the transaction after user confirmation.</p>
+					</div>
+
+					<div class="nl-flow">
+						<span class="stack-tag">jajan 18rb cash</span>
+						<span class="nl-arrow" aria-hidden="true">→</span>
+						<span class="stack-tag">Expense · Rp18.000 · Cash</span>
+						<span class="nl-arrow" aria-hidden="true">→</span>
+						<span class="stack-tag">Preview: [ Confirm ] [ Edit ]</span>
 					</div>
 				</div>
 			</div>
@@ -241,7 +249,7 @@ const socialLinks = [
 		<section class="skills" id="skills">
 			<div class="wrap">
 				<div class="s-kicker">Skills</div>
-				<div class="s-title">Toolset</div>
+				<h2 class="s-title">Toolset</h2>
 
 				{skillCategories.map((cat) => (
 					<div class="skill-row">
@@ -256,7 +264,7 @@ const socialLinks = [
 		<section class="education" id="education">
 			<div class="wrap">
 				<div class="s-kicker">Education</div>
-				<div class="s-title">Background</div>
+				<h2 class="s-title">Background</h2>
 
 				<div class="edu-card">
 					<div class="edu-header">
@@ -296,14 +304,15 @@ const socialLinks = [
 							frontend, backend, and the systems behind them.
 						</p>
 						<div class="contact-links">
-							{socialLinks.map((link) => (
-								<a href={link.href} target={link.href.startsWith('http') ? '_blank' : undefined} rel={link.href.startsWith('http') ? 'noreferrer' : undefined}>
-									{link.label.toLowerCase()} — {link.href === `mailto:${email}` ? email : link.href}
-								</a>
-							))}
+							<a href={`mailto:${email}`}>{email}</a>
+							<a href={github} target="_blank" rel="noopener noreferrer">github.com/rejipyansah</a>
+							<a href={linkedin} target="_blank" rel="noopener noreferrer">linkedin.com/in/reji-pikriyansah</a>
 						</div>
 					</div>
-					<a class="btn-primary" href={`mailto:${email}`}>Send an email</a>
+					<div class="contact-actions">
+						<a class="btn-primary" href={`mailto:${email}`}>Send an email</a>
+						<a class="btn-secondary" href="/Reji_Pikriyansah_CV.pdf" download>Download CV</a>
+					</div>
 				</div>
 			</div>
 		</section>

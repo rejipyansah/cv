@@ -1,6 +1,5 @@
 ---
 const navItems = [
-	{ label: 'About', href: '#about' },
 	{ label: 'Experience', href: '#experience' },
 	{ label: 'Work', href: '#work' },
 	{ label: 'Skills', href: '#skills' },
@@ -30,3 +29,17 @@ const navItems = [
 		))}
 	</div>
 </nav>
+
+<script>
+	const toggle = document.getElementById('nav-toggle');
+	if (toggle instanceof HTMLInputElement) {
+		document.querySelectorAll('.links a').forEach((link) => {
+			link.addEventListener('click', () => {
+				toggle.checked = false;
+			});
+		});
+		document.addEventListener('keydown', (e) => {
+			if (e.key === 'Escape') toggle.checked = false;
+		});
+	}
+</script>
