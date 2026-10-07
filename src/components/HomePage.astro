@@ -1,0 +1,280 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from './Navbar.astro';
+import { getDictionary } from '../i18n/dictionaries';
+import type { Locale } from '../i18n/config';
+
+interface Props {
+	locale: Locale;
+}
+
+const { locale } = Astro.props;
+const dict = getDictionary(locale);
+
+const cvPdfPath = locale === 'en' ? '/cv-reji-en.pdf' : '/cv-reji-id.pdf';
+
+const alternateUrls = {
+	id: '/',
+	en: '/en/',
+};
+
+const email = 'rejipyansah@gmail.com';
+const github = 'https://github.com/rejipyansah';
+const linkedin = 'https://www.linkedin.com/in/reji-pikriyansah';
+---
+
+<Layout
+	locale={locale}
+	title={dict.meta.title}
+	description={dict.meta.description}
+	author={dict.meta.author}
+	alternateUrls={alternateUrls}
+>
+	<Navbar
+		locale={locale}
+		alternateUrls={alternateUrls}
+		navLabels={dict.nav}
+		languageToggle={dict.languageToggle}
+	/>
+
+	<main>
+		<!-- Hero -->
+		<section class="hero">
+			<div class="wrap">
+				<div class="kicker">{dict.hero.kicker}</div>
+				<h1>{dict.hero.nameFirst}<br />{dict.hero.nameLast}</h1>
+				<p class="role">{dict.hero.role}</p>
+				<p class="intro">{dict.hero.intro}</p>
+				<p class="hero-meta">{dict.hero.meta}</p>
+
+				<div class="cta-row">
+					<a class="btn-primary" href={cvPdfPath} download>{dict.hero.downloadCv}</a>
+					<a class="btn-secondary" href={`mailto:${email}`}>{dict.hero.emailCta}</a>
+				</div>
+
+				<div class="hero-social">
+					<a href={github} target="_blank" rel="noopener noreferrer" aria-label={dict.a11y.github}>
+						<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+					</a>
+					<a href={linkedin} target="_blank" rel="noopener noreferrer" aria-label={dict.a11y.linkedin}>
+						<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+					</a>
+				</div>
+
+				<div class="strip">
+					<div class="item">
+						<div class="num">{dict.stats.years.num}</div>
+						<div class="label">{dict.stats.years.label}</div>
+					</div>
+					<div class="item">
+						<div class="num">{dict.stats.apps.num}</div>
+						<div class="label">{dict.stats.apps.label}</div>
+					</div>
+					<div class="item">
+						<div class="num">{dict.stats.industries.num}</div>
+						<div class="label">{dict.stats.industries.label}</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Experience -->
+		<section class="experience" id="experience">
+			<div class="wrap">
+				<div class="s-kicker">{dict.experience.kicker}</div>
+				<h2 class="s-title">{dict.experience.title}</h2>
+
+				<div class="employer-line">
+					<span class="name">{dict.experience.employerName}</span>
+					<span class="date">{dict.experience.employerDate}</span>
+				</div>
+				<p class="employer-sub">{dict.experience.employerSub}</p>
+
+				{dict.experience.entries.map((exp, i) => (
+					<div class="proj-line">
+						<div class="proj-summary">
+							<span class="proj-idx">{String(i + 1).padStart(2, '0')}</span>
+							<div class="proj-info">
+								<div class="proj-name">{exp.project}</div>
+								<div class="proj-role">{exp.role}</div>
+							</div>
+							<div class="proj-date">{exp.date}</div>
+						</div>
+						<div class="proj-details">
+							{exp.lead && <p class="proj-desc">{exp.lead}</p>}
+							<ul class="proj-bullets">
+								{exp.bullets.map((item) => (
+									<li>{item}</li>
+								))}
+							</ul>
+							{exp.tags.length > 0 && (
+								<div class="proj-tags">
+									{exp.tags.map((tag) => (
+										<span class="stack-tag">{tag}</span>
+									))}
+								</div>
+							)}
+						</div>
+					</div>
+				))}
+			</div>
+		</section>
+
+		<!-- How I work -->
+		<section class="how" id="how">
+			<div class="wrap">
+				<h2 class="s-title">{dict.how.title}</h2>
+
+				<div class="how-list">
+					{dict.how.items.map((item) => (
+						<div class="how-item">
+							<div class="how-item-title">{item.title}</div>
+							<p class="how-item-body">{item.body}</p>
+						</div>
+					))}
+				</div>
+			</div>
+		</section>
+
+		<!-- Featured Project -->
+		<section class="featured" id="work">
+			<div class="featured-head">
+				<div class="s-kicker">{dict.featured.kicker}</div>
+				<h2 class="s-title" style="margin-bottom: 0;">{dict.featured.title}</h2>
+			</div>
+
+			<a
+				class="gallery-frame"
+				href="https://life-os.rejip.my.id/"
+				target="_blank"
+				rel="noopener noreferrer"
+				aria-label={dict.featured.lifeOs.ariaLabel}
+			>
+				<img
+					src="/life-os.webp"
+					alt={dict.featured.lifeOs.alt}
+					loading="lazy"
+					width="3306"
+					height="1456"
+				/>
+			</a>
+
+			<div class="fp-body">
+				<div class="fp-top">
+					<div>
+						<h3 class="fp-title">Life OS</h3>
+						<div class="fp-sub">{dict.featured.lifeOs.sub}</div>
+					</div>
+					<div class="fp-actions">
+						<a class="btn-primary" href="https://life-os.rejip.my.id/" target="_blank" rel="noopener noreferrer">{dict.featured.lifeOs.guestCta}</a>
+						<span class="btn-secondary" aria-disabled="true">{dict.featured.lifeOs.sourceCode}</span>
+					</div>
+				</div>
+
+				<p class="fp-desc">{dict.featured.lifeOs.tagline}</p>
+
+				<p class="fp-body-text">{dict.featured.lifeOs.body}</p>
+
+				<div class="fp-stack">
+					{dict.featured.lifeOs.stack.map((tag) => (
+						<span class="stack-tag">{tag}</span>
+					))}
+				</div>
+
+				<div class="fp-case">
+					<div>
+						<div class="label">{dict.featured.lifeOs.builtLabel}</div>
+						<div class="body">{dict.featured.lifeOs.builtBody}</div>
+					</div>
+					<div>
+						<div class="label">{dict.featured.lifeOs.systemLabel}</div>
+						<div class="body">{dict.featured.lifeOs.systemBody}</div>
+					</div>
+				</div>
+
+				<div class="fp-demo">
+					<div class="nl-flow">
+						{dict.featured.lifeOs.demoFlow.map((step, i) => (
+							<>
+								{i > 0 && <span class="nl-arrow" aria-hidden="true">→</span>}
+								<span class="stack-tag">{step}</span>
+							</>
+						))}
+					</div>
+
+					<div class="fp-notes">
+						<div>
+							<div class="label">{dict.featured.lifeOs.learnedLabel}</div>
+							<div class="body">{dict.featured.lifeOs.learnedBody}</div>
+						</div>
+						<div>
+							<div class="label">{dict.featured.lifeOs.nextLabel}</div>
+							<div class="body">{dict.featured.lifeOs.nextBody}</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Skills -->
+		<section class="skills" id="skills">
+			<div class="wrap">
+				<div class="s-kicker">{dict.skills.kicker}</div>
+				<h2 class="s-title">{dict.skills.title}</h2>
+
+				{dict.skills.categories.map((cat) => (
+					<div class="skill-row">
+						<div class="g-label">{cat.label}</div>
+						<div class="g-items">{cat.items}</div>
+					</div>
+				))}
+			</div>
+		</section>
+
+		<!-- Education & Languages -->
+		<section class="education" id="education">
+			<div class="wrap">
+				<div class="s-kicker">{dict.education.kicker}</div>
+				<h2 class="s-title">{dict.education.title}</h2>
+
+				<div class="edu-card">
+					<div class="edu-header">
+						<div class="edu-name">{dict.education.university}</div>
+						<div class="edu-date">{dict.education.eduDate}</div>
+					</div>
+					<div class="edu-degree">{dict.education.degree}</div>
+				</div>
+
+				<div class="edu-langs">
+					{dict.education.languages.map((lang) => (
+						<div class="lang-row">
+							<div class="lang-label">{lang.label}</div>
+							<div class="lang-level">{lang.level}</div>
+						</div>
+					))}
+				</div>
+			</div>
+		</section>
+
+		<!-- Contact -->
+		<section class="contact" id="contact">
+			<div class="wrap">
+				<div class="contact-panel">
+					<div>
+						<div class="contact-text">{dict.contact.heading}</div>
+						<p class="contact-desc">{dict.contact.description}</p>
+						<div class="contact-links">
+							<a href={`mailto:${email}`}>{email}</a>
+							<a href={github} target="_blank" rel="noopener noreferrer">github.com/rejipyansah</a>
+							<a href={linkedin} target="_blank" rel="noopener noreferrer">linkedin.com/in/reji-pikriyansah</a>
+						</div>
+					</div>
+					<div class="contact-actions">
+						<a class="btn-primary" href={`mailto:${email}`}>{dict.contact.emailCta}</a>
+						<a class="btn-secondary" href={cvPdfPath} download>{dict.contact.downloadCv}</a>
+					</div>
+				</div>
+			</div>
+		</section>
+	</main>
+</Layout>

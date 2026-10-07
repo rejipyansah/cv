@@ -2,19 +2,27 @@
 import '../styles/global.css';
 
 interface Props {
+	locale: string;
 	title: string;
 	description: string;
 	author: string;
+	alternateUrls: { id: string; en: string };
 }
 
-const { title, description, author } = Astro.props;
+const { locale, title, description, author, alternateUrls } = Astro.props;
 const site = Astro.site;
 const canonicalURL = site ? new URL(Astro.url.pathname, site) : undefined;
 const ogImageURL = site ? new URL('/og.png', site) : undefined;
+
+const idURL = site ? new URL(alternateUrls.id, site) : undefined;
+const enURL = site ? new URL(alternateUrls.en, site) : undefined;
+
+const ogLocale = locale === 'en' ? 'en_US' : 'id_ID';
+const ogLocaleAlternate = locale === 'en' ? 'id_ID' : 'en_US';
 ---
 
 <!doctype html>
-<html lang="id">
+<html lang={locale}>
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -23,6 +31,8 @@ const ogImageURL = site ? new URL('/og.png', site) : undefined;
 		<meta property="og:title" content={title} />
 		<meta property="og:description" content={description} />
 		<meta property="og:type" content="website" />
+		<meta property="og:locale" content={ogLocale} />
+		<meta property="og:locale:alternate" content={ogLocaleAlternate} />
 		<meta name="twitter:card" content="summary_large_image" />
 		<meta name="theme-color" content="#F7F4EF" />
 		{site && (
@@ -32,6 +42,9 @@ const ogImageURL = site ? new URL('/og.png', site) : undefined;
 				<meta property="og:image" content={ogImageURL} />
 			</>
 		)}
+		{idURL && <link rel="alternate" hreflang="id" href={idURL} />}
+		{enURL && <link rel="alternate" hreflang="en" href={enURL} />}
+		{idURL && <link rel="alternate" hreflang="x-default" href={idURL} />}
 		<link rel="icon" href="/favicon.ico" sizes="32x32" />
 		<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
 		<link rel="apple-touch-icon" href="/favicon.svg" />

@@ -1,20 +1,56 @@
 ---
+import type { Locale } from '../i18n/config';
+
+interface Props {
+	locale: Locale;
+	alternateUrls: { id: string; en: string };
+	navLabels: {
+		experience: string;
+		work: string;
+		skills: string;
+		contact: string;
+		mainNavigation: string;
+		toggleMenu: string;
+	};
+	languageToggle: {
+		label: string;
+	};
+}
+
+const { locale, alternateUrls, navLabels, languageToggle } = Astro.props;
+
 const navItems = [
-	{ label: 'Experience', href: '#experience' },
-	{ label: 'Work', href: '#work' },
-	{ label: 'Skills', href: '#skills' },
-	{ label: 'Contact', href: '#contact' },
+	{ label: navLabels.experience, href: '#experience' },
+	{ label: navLabels.work, href: '#work' },
+	{ label: navLabels.skills, href: '#skills' },
+	{ label: navLabels.contact, href: '#contact' },
 ];
+
+const logoHref = alternateUrls[locale];
 ---
 
-<nav class="navbar" aria-label="Main navigation">
-	<a href="/" class="logo">Reji</a>
+<nav class="navbar" aria-label={navLabels.mainNavigation}>
+	<a href={logoHref} class="logo">Reji</a>
+
+	<div class="lang-switch" aria-label={languageToggle.label}>
+		<a
+			href={alternateUrls.id}
+			class={locale === 'id' ? 'is-active' : ''}
+			aria-current={locale === 'id' ? 'page' : undefined}
+		>ID</a>
+		<span class="sep" aria-hidden="true">|</span>
+		<a
+			href={alternateUrls.en}
+			class={locale === 'en' ? 'is-active' : ''}
+			aria-current={locale === 'en' ? 'page' : undefined}
+		>EN</a>
+	</div>
 
 	<input
 		type="checkbox"
 		id="nav-toggle"
 		class="nav-toggle-input"
-		aria-label="Toggle navigation menu"
+		aria-label={navLabels.toggleMenu}
 	/>
 
 	<label for="nav-toggle" class="nav-toggle" aria-hidden="true">
@@ -33,7 +69,7 @@ const navItems = [
 <script>
 	const toggle = document.getElementById('nav-toggle');
 	if (toggle instanceof HTMLInputElement) {
-		document.querySelectorAll('.links a').forEach((link) => {
+		document.querySelectorAll('.links a, .lang-switch a').forEach((link) => {
 			link.addEventListener('click', () => {
 				toggle.checked = false;
 			});
